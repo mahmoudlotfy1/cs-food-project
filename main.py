@@ -30,5 +30,5 @@ class user():
 
 
 usr= user(person[0],person[1])
-
+ 
 root.mainloop()
