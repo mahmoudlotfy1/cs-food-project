@@ -12,7 +12,7 @@ savedname= ["mmm","hi"]
 resturantname=["n","m","q","h","k"]
 
 usr.user(login1,savedname[0],savedname[1],resturantpage)
-o.b(resturantpage,resturantname)
+o.b(resturantpage,resturantname) 
 
 
 

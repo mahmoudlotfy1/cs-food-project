@@ -14,7 +14,7 @@ class b(scrollR):
  
         for m in self.name:
             self.b= i.CTkButton(self.scroll,fg_color="blue",text=m,width=200)
-            self.b.pack(pady=9)
+            self.b.pack(pady=9) 
         
 
         

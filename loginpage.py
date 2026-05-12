@@ -26,7 +26,7 @@ class user(starting):
     def loging(self):
         if self.username.get() == self.name and  self.userpassword.get()== self.password:
             self.login.pack_forget()
-            self.next.pack(fill="both", expand= True)
+            self.next.pack(fill="both", expand= True) 
             
 
         
