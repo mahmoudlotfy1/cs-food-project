@@ -1,34 +1,21 @@
 import customtkinter as i
-
-
-root = i.CTk()
-i.set_appearance_mode("dark")
+import loginpage as usr
+import returantpage as o
+root= i.CTk()
+login1= i.CTkFrame(root)
+resturantpage= i.CTkFrame(root)
+i.set_appearance_mode("light")
 i.set_default_color_theme("blue")
-root.geometry('500x500')
+root.geometry('700x700')
+
+savedname= ["mmm","hi"]
+resturantname=["n","m","q","h","k"]
+
+usr.user(login1,savedname[0],savedname[1],resturantpage)
+o.b(resturantpage,resturantname) 
 
 
-person= ["mahmoud", 1234]
-
-class user():
-    def __init__(self,name,password):
-        self.name=name
-        self.password= password
-        
-        self.lol=i.CTkEntry(root,placeholder_text="yoyo",width=100)
-        self.lol.pack(padx=1, pady= 4)
-        self.button= i.CTkButton(root, text="yoyo",width=100,command= self.yourmom)
-        self.button.pack(pady=6)
-    def yourmom(self):
-        names= self.lol.get()
-        if names == self.name:
-            print("hi")
-        else:
-            print("noooommmm")
 
 
-        
 
-
-usr= user(person[0],person[1])
- 
 root.mainloop()
