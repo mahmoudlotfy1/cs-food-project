@@ -23,19 +23,29 @@ class user(starting):
         self.singin=False
         self.b = i.CTkButton(login,text="login",fg_color="white",width=200,command= self.loging)
         self.b.pack(pady=14)
-        self.b = i.CTkButton(login,text="siginup",fg_color="blue",width=200,command= self.loging)
+        self.b = i.CTkButton(login,text="siginup",fg_color="blue",width=200,command= self.singinn)
         self.b.pack(pady=17)
 
     def loging(self):
-        if self.singin==False:
-            self.singin= True
-            self.login.pack_forget()
-            self.s.pack(fill="both", expand= True) 
-            
-
         if self.username.get() in self.name and  self.userpassword.get() in self.name[self.username.get()]:
             self.login.pack_forget()
             self.next.pack(fill="both", expand= True) 
+        
+        
+        else: 
+            if self.username.get() not in self.name:
+                print("wrong")
+    
+    def singinn(self):
+        if self.singin==False:
+              self.singin= True
+              self.login.pack_forget()
+              self.s.pack(fill="both", expand= True) 
+            
+          
+            
+
+        
             
 
         
