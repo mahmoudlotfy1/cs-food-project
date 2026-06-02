@@ -2,6 +2,9 @@ import json
 import customtkinter as ctk
 
 DB_FILE = "db.json"
+uses="uses.json"
+
+
 
 class DataManager:
     def load(self):
@@ -9,20 +12,10 @@ class DataManager:
             with open(DB_FILE, "r", encoding="utf-8") as file:
                 return json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
-            data = {"users": [], "restaurants": []}
+            data = {"restaurants": []}
             with open(DB_FILE, "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=4)
             return data
-
-    def get_user(self, username, password):
-        data = self.load()
-        for user in data.get("users", []):
-            if (user.get("username") == username and 
-                user.get("password") == password and 
-                user.get("role") == "customer"):
-                return user
-        return None
-
     def get_restaurants(self):
         data = self.load()
         return data.get("restaurants", [])
@@ -42,33 +35,7 @@ class CartManager:
         self.items = []
 
 
-class LoginPage(ctk.CTkFrame):
-    def __init__(self, controller):
-        super().__init__(controller.root)
-        self.controller = controller
-        
-        ctk.CTkLabel(self, text="Login", font=("Arial", 20)).pack(pady=10)
-        
-        self.username_entry = ctk.CTkEntry(self, placeholder_text="Username")
-        self.username_entry.pack(pady=5)
-        
-        self.password_entry = ctk.CTkEntry(self, placeholder_text="Password", show="*")
-        self.password_entry.pack(pady=5)
-        
-        self.msg_label = ctk.CTkLabel(self, text="")
-        self.msg_label.pack()
-        
-        ctk.CTkButton(self, text="Login", command=self.login).pack(pady=10)
 
-    def login(self):
-        username = self.username_entry.get()
-        password = self.password_entry.get()
-        user = self.controller.data.get_user(username, password)
-        
-        if user:
-            self.controller.show_home(user["username"])
-        else:
-            self.msg_label.configure(text="Invalid credentials", text_color="red")
 
 
 class HomePage(ctk.CTkFrame):
@@ -96,19 +63,18 @@ class HomePage(ctk.CTkFrame):
 
 
 class AppController:
-    def __init__(self):
-        self.root = ctk.CTk()
-        self.root.title("FoodApp")
-        self.root.geometry("400x500")
+    def __init__(self,master):
+        self.root = master
+        
+      
         
         self.data = DataManager()
         self.cart = CartManager()
         self.current_frame = None
         
-        self.login_page = LoginPage(self)
-        self.login_page.pack(fill="both", expand=True)
         
-        self.root.mainloop()
+      
+        
 
     def switch_frame(self, new_frame):
         if self.current_frame:
@@ -118,12 +84,11 @@ class AppController:
         self.current_frame = new_frame
         self.current_frame.pack(fill="both", expand=True)
 
-    def show_home(self, username):
-        if hasattr(self, 'login_page') and self.login_page.winfo_exists():
-            self.login_page.pack_forget()
+    def show_home(self, username=None):
+      self.root.pack(fill="both", expand=True)
+      self.switch_frame(HomePage(self))
             
-        self.switch_frame(HomePage(self))
-
+        
     def show_dishes(self, restaurant):
         frame = ctk.CTkFrame(self.root)
         
@@ -179,5 +144,3 @@ class AppController:
         
         self.switch_frame(frame)
 
-if __name__ == "__main__":
-    AppController()

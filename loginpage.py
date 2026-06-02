@@ -31,7 +31,7 @@ class user(starting):
     def loging(self):
         if self.username.get() in self.name_cs and  self.userpassword.get() in self.name_cs[self.username.get()]:
             self.login.pack_forget()
-            self.next.pack(fill="both", expand= True) 
+            self.next.show_home() 
         
         if self.username.get() in self.name_ow and  self.userpassword.get() in self.name_ow[self.username.get()]:
             self.login.pack_forget()

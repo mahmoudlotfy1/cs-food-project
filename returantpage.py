@@ -26,6 +26,6 @@ class b(scrollR):
              self.scroll.pack_forget()
              v.pack(fill="both",expand=True)
 
-        
+ # testing it so there is no use for it now
 
         
