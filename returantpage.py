@@ -20,12 +20,12 @@ class b(scrollR):
     def press(self,k):
         v=self.name[k]
 
-        if self.name[k] != None :
+        if v != None :
             if self.pp ==False:
              self.pp= True
              self.scroll.pack_forget()
              v.pack(fill="both",expand=True)
 
-        
+ # testing it so there is no use for it now
 
         
