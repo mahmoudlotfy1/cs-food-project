@@ -1,1 +1,26 @@
-{"namepassword": {"mmm": "123", "kkk": "333", "kk": "a", "h": "j", "hh": "lol", "wegz": "2024", "me": "1233"}}
+{
+    "customer": {
+        "mahmoud": "lotfy",
+        "mah": "moud"
+    },
+    "owner": {
+        "mahmoud resturant": "mahmoud",
+        "111": "233",
+        "1ddd": "fdfsg",
+        "messi": "123",
+        "mahmoudlol": "mahmoudlol",
+        "maaa": "mooo"
+    },
+    "mahmoudlol": {
+        "Resturant name": "",
+        "menue": {
+            "": ""
+        }
+    },
+    "maaa": {
+        "Resturant name": "",
+        "menue": {
+            "": ""
+        }
+    }
+}

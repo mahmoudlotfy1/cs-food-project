@@ -2,8 +2,10 @@ import customtkinter as i
 
 #login is master
 class starting:
-    def __init__(self,login,name,net,s):
-        self.name=name
+    def __init__(self,login,name_cs,name_ow,net,s,ownerpage):
+        self.name_cs=name_cs
+        self.name_ow= name_ow
+        self.ownerpage= ownerpage
         self.s=s
         self.login= login
         self.next=net
@@ -18,8 +20,8 @@ class starting:
         
 
 class user(starting):
-    def __init__(self, login, name, net,s):
-        super().__init__(login, name,net,s)
+    def __init__(self,login,name_cs,name_ow,net,s,ownerpage):
+        super().__init__(login,name_cs,name_ow,net,s,ownerpage)
         self.singin=False
         self.b = i.CTkButton(login,text="login",fg_color="white",width=200,command= self.loging)
         self.b.pack(pady=14)
@@ -27,13 +29,17 @@ class user(starting):
         self.b.pack(pady=17)
 
     def loging(self):
-        if self.username.get() in self.name and  self.userpassword.get() in self.name[self.username.get()]:
+        if self.username.get() in self.name_cs and  self.userpassword.get() in self.name_cs[self.username.get()]:
             self.login.pack_forget()
             self.next.pack(fill="both", expand= True) 
         
+        if self.username.get() in self.name_ow and  self.userpassword.get() in self.name_ow[self.username.get()]:
+            self.login.pack_forget()
+            self.ownerpage.pack(fill="both", expand= True) 
+        
         
         else: 
-            if self.username.get() not in self.name:
+            if self.username.get() not in self.name_cs and self.username.get() not in self.name_ow:
                 print("wrong")
     
     def singinn(self):
@@ -41,6 +47,9 @@ class user(starting):
               self.singin= True
               self.login.pack_forget()
               self.s.pack(fill="both", expand= True) 
+    def get_owner_resturant(self):
+        self.username.get()
+        
             
           
             

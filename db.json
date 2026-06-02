@@ -1,0 +1,4 @@
+{"users": [{"username": "yolo", "password": "123456", "role": "customer"}],
+ "restaurants":  [{"name":"Pizza Place", "dishes": [{"name": "Margherita", "price": 10.99}, {"name": "Pepperoni", "price": 12.99}]},
+ {"name":"burger Place", "dishes": [{"name": "animal style", "price": 15.99}, {"name": "juicy lucy", "price": 16.99}]}
+]}
