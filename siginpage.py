@@ -17,11 +17,13 @@ class siginpage:
         self.cspage=customerpage
     def owner(self):
         
-      
+      # name par
         self.inputbarn=i.CTkEntry(self.ow,placeholder_text="name",width=200,height=20)
+        # password par
         self.inputbarp=i.CTkEntry(self.ow,placeholder_text="password",width=200,height=20)
         self.inputbarn.pack(pady=20)
         self.inputbarp.pack(pady=21)
+        #approve button
         self.buttono= i.CTkButton(self.ow,width=200,text="welcome",command=self.enteringowner)
         self.buttono.pack(pady=22)
            
@@ -30,11 +32,12 @@ class siginpage:
         with open(exact_path,"r")as f:
             data=j.load(f)
         data["owner"][self.inputbarn.get()]=self.inputbarp.get()
-        data[self.inputbarn.get()]={"Resturant name": "","menue": {"":""}}
+        data[self.inputbarn.get()]={"Resturant name": ""}
+        self.ownerpage.x = self.inputbarn.get()
         with open(exact_path,"w")as f:
             j.dump(data,f,indent=4)
         self.master.pack_forget()
-        self.ownerpage.pack(fill="both",expand=True)
+        self.ownerpage.master.pack(fill="both",expand=True)
     def customer(self):
     
         self.inputbarnn=i.CTkEntry(self.co,placeholder_text="name",width=200,height=20)
@@ -51,7 +54,7 @@ class siginpage:
         with open(exact_path,"w")as f:
             j.dump(data,f,indent=4)
         self.master.pack_forget()
-        self.cspage.pack(fill="both",expand=True)
+        self.cspage.show_home()
     def switch(self,text):
         self.co.pack_forget()
         self.ow.pack_forget()
@@ -60,8 +63,7 @@ class siginpage:
             self.co.pack(pady=20)
         if text=="owner":
             self.ow.pack(pady=20)
-    def get_owner_resturant(self):
-        self.inputbarnn.get()
+    
         
 class sb(siginpage):
     def __init__(self,master,customerpage,ownerpage):

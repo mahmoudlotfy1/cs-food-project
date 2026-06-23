@@ -1,8 +1,8 @@
 import json
 import customtkinter as ctk
-
+from recipt1 import main_rc
 DB_FILE = "db.json"
-uses="uses.json"
+
 
 
 
@@ -29,10 +29,11 @@ class CartManager:
         self.items.append({**dish, "from": restaurant})
 
     def total(self):
-        return sum(item["price"] for item in self.items)
-
+        return sum(float(item["price"]) for item in self.items)
     def clear(self):
         self.items = []
+
+    
 
 
 
@@ -84,11 +85,10 @@ class AppController:
         self.current_frame = new_frame
         self.current_frame.pack(fill="both", expand=True)
 
-    def show_home(self, username=None):
+    def show_home(self):
       self.root.pack(fill="both", expand=True)
       self.switch_frame(HomePage(self))
-            
-        
+               
     def show_dishes(self, restaurant):
         frame = ctk.CTkFrame(self.root)
         
@@ -119,28 +119,25 @@ class AppController:
 
     def show_cart(self):
         frame = ctk.CTkFrame(self.root)
-        
-        ctk.CTkButton(
-            frame, 
-            text="← Back", 
-            command=lambda: self.switch_frame(HomePage(self))
-        ).pack(pady=5)
-        
-        scroll_frame = ctk.CTkScrollableFrame(frame, height=350)
-        scroll_frame.pack(fill="both", expand=True, padx=10)
-        
+        ctk.CTkButton(frame, text="← Back", command=lambda: self.switch_frame(HomePage(self))).pack(pady=5)
+        scroll = ctk.CTkScrollableFrame(frame, height=350); scroll.pack(fill="both", expand=True, padx=10)
         for item in self.cart.items:
-            item_text = f"{item['name']} — ${item['price']} ({item['from']})"
-            ctk.CTkLabel(scroll_frame, text=item_text).pack(anchor="w", pady=2)
-            
-        total_text = f"Total: ${self.cart.total():.2f}"
-        ctk.CTkLabel(frame, text=total_text, font=("Arial", 15)).pack(pady=5)
-        
-        def checkout():
-            self.cart.clear()
-            self.switch_frame(HomePage(self))
-            
-        ctk.CTkButton(frame, text="Checkout", command=checkout).pack()
-        
+            ctk.CTkLabel(scroll, text=f"{item['name']} — ${item['price']} ({item['from']})").pack(anchor="w", pady=2)
+        ctk.CTkLabel(frame, text=f"Total: ${self.cart.total():.2f}", font=("Arial", 15)).pack(pady=5)
+        #process_checkout
+        def process_checkout():
+            final_items= list(self.cart.items)
+            # it saves the items
+            final_total = self.cart.total()
+            if len(final_items) > 0:
+                # it is created by jo to clean the cart
+                self.cart.clear()
+                
+                self.switch_frame(main_rc(self, final_items, final_total))
+            else:
+                print("Cart is empty!")
+                # the comand
+        self.checkout_b = ctk.CTkButton(frame, text="Checkout", command=process_checkout)
+        self.checkout_b.pack(pady=10)
         self.switch_frame(frame)
 
