@@ -1,11 +1,9 @@
 import customtkinter as i
 import loginpage as usr
-import returantpage as r
+import retaurant1 as res
 import json as j
 import siginpage as ss
-import mahmoudkoshary as mk
-import hassendawla as hd
-import youssefkabab as yk
+
 import ownerpage as ownerp
 import ys 
 
@@ -19,7 +17,7 @@ resturantpage= i.CTkFrame(root)
 ooo= i.CTkFrame(root)
 oo= i.CTkFrame(root)
 # pass by refrence we use qqq to show ooo belonge to ownerpage
-resfrence_ow=ownerp.owner(ooo)
+resfrence_ow=res.thebackbone(ooo)
 resfrence_ys= ys.AppController(oo)
 i.set_appearance_mode("light")
 i.set_default_color_theme("blue")
@@ -28,21 +26,10 @@ root.geometry('700x700')
 with open(exact_path,"r")as f:
     data=j.load(f)
 
-mmk= i.CTkFrame(root)
-ykk= i.CTkFrame(root)
-hdd=i.CTkFrame(root)
 
-mkrestaurant=mk.mahresturant(mmk)
-ykrestaurant= yk.mahresturant(ykk)
-hdrestaurant= hd.mahresturant(hdd)
 
-resturantname={ "mahmoud": mmk,
-               "youssef":ykk,
-                "hassen":hdd }
-
-usr.user(login1,data["customer"],data["owner"],resfrence_ys,signin,ooo)
-r.b(resturantpage,resturantname) 
-ss.sb(signin,resturantpage,ooo)
+usr.user(login1,data["customer"],data["owner"],resfrence_ys,signin,resfrence_ow)
+ss.sb(signin,resfrence_ys,resfrence_ow)
 
 
 

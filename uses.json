@@ -1,26 +1,15 @@
 {
     "customer": {
-        "mahmoud": "lotfy",
-        "mah": "moud"
+        "mah": "moud",
+        "m": "d",
+        "mm": "123",
+        "aaa": "aaaa",
+        "s": "s"
     },
     "owner": {
-        "mahmoud resturant": "mahmoud",
-        "111": "233",
-        "1ddd": "fdfsg",
-        "messi": "123",
-        "mahmoudlol": "mahmoudlol",
-        "maaa": "mooo"
+        "mahmoud": "ma"
     },
-    "mahmoudlol": {
-        "Resturant name": "",
-        "menue": {
-            "": ""
-        }
-    },
-    "maaa": {
-        "Resturant name": "",
-        "menue": {
-            "": ""
-        }
+    "mahmoud": {
+        "Resturant name": "lol"
     }
 }
