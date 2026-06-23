@@ -19,7 +19,7 @@ class st:
         # entery name placeholder_text the transpance text
         self.username= i.CTkEntry(master,placeholder_text="name pls",width=200)
         self.username.pack(pady=10)
-        self.userpassword= i.CTkEntry(master,placeholder_text="password pls",width=200,show="lol")
+        self.userpassword= i.CTkEntry(master,placeholder_text="password pls",width=200,show="*")
         self.userpassword.pack(pady=12)
         
 

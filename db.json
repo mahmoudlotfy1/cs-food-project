@@ -32,54 +32,7 @@
                     "price": 16.99
                 }
             ]
-        },
-        {
-            "name": "k",
-            "dishes": [
-                {
-                    "name": "koshary",
-                    "price": 12.0
-                },
-                {
-                    "name": "we",
-                    "price": 12.05
-                }
-            ]
-        },
-        {
-            "name": "lol",
-            "dishes": [
-                {
-                    "name": "q",
-                    "price": 12.0
-                }
-            ]
-        },
-        {
-            "name": "mah",
-            "dishes": [
-                {
-                    "name": "koy",
-                    "price": 12.01
-                },
-                {
-                    "name": "lolopop",
-                    "price": 121.0111
-                }
-            ]
-        },
-        {
-            "name": "qw",
-            "dishes": [
-                {
-                    "name": "koshary",
-                    "price": 12.01
-                },
-                {
-                    "name": "foodname ",
-                    "price": 123.0
-                }
-            ]
         }
+        
     ]
 }
