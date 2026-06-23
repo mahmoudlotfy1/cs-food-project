@@ -73,4 +73,4 @@ class sb(siginpage):
         self.oandwpage= i.CTkSegmentedButton(self.master,values=["owner","customer"],command=self.switch ,width=100,height=10)
         self.oandwpage.pack(pady=10)
         self.oandwpage.set("customer")
-        self.switch("customer")
+        self.switch("customer")  

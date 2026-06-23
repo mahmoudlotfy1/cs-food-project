@@ -4,12 +4,27 @@
         "m": "d",
         "mm": "123",
         "aaa": "aaaa",
-        "s": "s"
+        "s": "s",
+        "Stefan": "///",
+        "qw": "qw",
+        "eeee": "e"
     },
     "owner": {
-        "mahmoud": "ma"
+        "mahmoud": "12",
+        "mah": "mah",
+        "qwq": "qwqwq",
+        "aaaa": "aaa"
     },
     "mahmoud": {
-        "Resturant name": "lol"
+        "Resturant name": "k"
+    },
+    "mah": {
+        "Resturant name": "mah"
+    },
+    "qwq": {
+        "Resturant name": ""
+    },
+    "aaaa": {
+        "Resturant name": "qw"
     }
 }
