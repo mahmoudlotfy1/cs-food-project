@@ -29,10 +29,10 @@ class user(st):
         super().__init__(master,name_cs,name_ow,ys,s,ownerpage)
         self.singin=False
         # self.b the button  for loging in
-        self.b = i.CTkButton(master,text="login",fg_color="white",width=200,command= self.loging)
+        self.b = i.CTkButton(master,text="login",width=200,command= self.loging)
         self.b.pack(pady=14)
         # for singin 
-        self.b = i.CTkButton(master,text="siginup",fg_color="blue",width=200,command= self.singinn)
+        self.b = i.CTkButton(master,text="signup",width=200,command= self.singinn)
         self.b.pack(pady=17)
 
     def loging(self):

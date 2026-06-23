@@ -214,9 +214,9 @@ class thebackbone(Thefrontface):
            price = x["price"]
            row= i.CTkFrame(self.scrollmenu, fg_color="transparent")
            row.pack(fill="x", pady=2)
-           i.CTkButton(row, text=f"{name} Price {price}$", width=400, command=lambda showing=x: print(showing)).pack(side="left", padx=5)
-           i.CTkButton(row, text="trash", width=200, command=lambda food=x: self.removing(food) ).pack(side="right", padx=5)
-           i.CTkButton(row, text="change price", width=200, command=lambda p=x: self.changingprice(p) ).pack(side="right", padx=5)
+           i.CTkButton(row, text=f"{name} Price {price}$", command=lambda showing=x: print(showing)).pack(side="left",fill="x", expand=True,padx=5,pady=3)
+           i.CTkButton(row, text="trash", fg_color="red",hover_color="darkred", command=lambda food=x: self.removing(food) ).pack(side="right", padx=5,pady=3)
+           i.CTkButton(row, text="change price", command=lambda p=x: self.changingprice(p) ).pack(side="right",padx=5,pady=3)
            
         
     

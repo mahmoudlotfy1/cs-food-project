@@ -4,7 +4,6 @@ import retaurant1 as res
 import json as j
 import siginpage as ss
 
-import ownerpage as ownerp
 import ys 
 
 
@@ -16,12 +15,15 @@ signin= i.CTkFrame(root)
 resturantpage= i.CTkFrame(root)
 ooo= i.CTkFrame(root)
 oo= i.CTkFrame(root)
-# pass by refrence we use qqq to show ooo belonge to ownerpage
+
 resfrence_ow=res.thebackbone(ooo)
 resfrence_ys= ys.AppController(oo)
 i.set_appearance_mode("light")
 i.set_default_color_theme("blue")
-root.geometry('700x700')
+root.geometry('700x500')
+root.title("MHY") #mahmoud hassen youssef
+# add it to be able to close the page with esc button
+root.bind("<Escape>", lambda event: root.destroy())
 
 with open(exact_path,"r")as f:
     data=j.load(f)
