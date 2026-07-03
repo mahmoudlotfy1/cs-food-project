@@ -34,52 +34,57 @@
             ]
         },
         {
-            "name": "k",
+            "name": "a",
             "dishes": [
                 {
                     "name": "koshary",
+                    "price": 10.0
+                }
+            ]
+        },
+        {
+            "name": "mahm",
+            "dishes": [
+                {
+                    "name": "21",
                     "price": 12.0
                 },
                 {
-                    "name": "we",
-                    "price": 12.05
-                }
-            ]
-        },
-        {
-            "name": "lol",
-            "dishes": [
-                {
-                    "name": "q",
+                    "name": "rf",
                     "price": 12.0
                 }
             ]
         },
         {
-            "name": "mah",
+            "name": "www",
             "dishes": [
                 {
-                    "name": "koy",
-                    "price": 12.01
-                },
-                {
-                    "name": "lolopop",
-                    "price": 121.0111
+                    "name": "12",
+                    "price": "122"
                 }
             ]
         },
         {
-            "name": "qw",
+            "name": "q",
             "dishes": [
                 {
-                    "name": "koshary",
-                    "price": 12.01
-                },
-                {
-                    "name": "foodname ",
-                    "price": 123.0
+                    "name": "11",
+                    "price": 11.0
                 }
             ]
+        },
+        {
+            "name": "kababab",
+            "dishes": [
+                {
+                    "name": "doner",
+                    "price": 12.0
+                }
+            ]
+        },
+        {
+            "name": "cs2",
+            "dishes": []
         }
     ]
 }

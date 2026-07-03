@@ -50,7 +50,7 @@ class HomePage(ctk.CTkFrame):
         ctk.CTkLabel(top_frame, text="Restaurants", font=("Arial", 18)).pack(side="left")
         
         cart_text = f"Cart ({len(controller.cart.items)})"
-        ctk.CTkButton(top_frame, text=cart_text, command=controller.show_cart).pack(side="right")
+        ctk.CTkButton(top_frame, text=cart_text, fg_color="#606c38", hover_color="#283618",command=controller.show_cart).pack(side="right")
         
         scroll_frame = ctk.CTkScrollableFrame(self, height=400)
         scroll_frame.pack(fill="both", expand=True, padx=10)
@@ -58,7 +58,7 @@ class HomePage(ctk.CTkFrame):
         for restaurant in controller.data.get_restaurants():
             ctk.CTkButton(
                 scroll_frame, 
-                text=restaurant["name"], 
+                text=restaurant["name"], fg_color="#606c38", hover_color="#283618",
                 command=lambda r=restaurant: controller.show_dishes(r)
             ).pack(fill="x", pady=3)
 
@@ -94,7 +94,7 @@ class AppController:
         
         ctk.CTkButton(
             frame, 
-            text="← Back", 
+            text="← Back", fg_color="#606c38", hover_color="#283618",
             command=lambda: self.switch_frame(HomePage(self))
         ).pack(pady=5)
         
@@ -112,6 +112,7 @@ class AppController:
                 row, 
                 text="Add", 
                 width=60, 
+                fg_color="#606c38", hover_color="#283618",
                 command=lambda d=dish: self.cart.add(d, restaurant["name"])
             ).pack(side="right", padx=5)
             
@@ -119,7 +120,7 @@ class AppController:
 
     def show_cart(self):
         frame = ctk.CTkFrame(self.root)
-        ctk.CTkButton(frame, text="← Back", command=lambda: self.switch_frame(HomePage(self))).pack(pady=5)
+        ctk.CTkButton(frame, text="← Back", fg_color="#606c38", hover_color="#283618",command=lambda: self.switch_frame(HomePage(self))).pack(pady=5)
         scroll = ctk.CTkScrollableFrame(frame, height=350); scroll.pack(fill="both", expand=True, padx=10)
         for item in self.cart.items:
             ctk.CTkLabel(scroll, text=f"{item['name']} — ${item['price']} ({item['from']})").pack(anchor="w", pady=2)
@@ -137,7 +138,7 @@ class AppController:
             else:
                 print("Cart is empty!")
                 # the comand
-        self.checkout_b = ctk.CTkButton(frame, text="Checkout", command=process_checkout)
+        self.checkout_b = ctk.CTkButton(frame, text="Checkout", fg_color="#606c38", hover_color="#283618",command=process_checkout)
         self.checkout_b.pack(pady=10)
         self.switch_frame(frame)
 
