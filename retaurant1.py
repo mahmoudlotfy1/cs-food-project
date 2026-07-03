@@ -1,7 +1,6 @@
 import customtkinter as i
 import json as j
-from siginpage import siginpage
-from loginpage import user as u
+
 db="db.json"
 uses="uses.json"
 class Thefrontface:
@@ -19,7 +18,7 @@ class Thefrontface:
         self.resturantname = i.CTkEntry(self.master, placeholder_text="Enter restaurant name", width=200)
         self.resturantname.pack(pady=5)
         
-        self.approvename = i.CTkButton(self.master, text="Save Name", width=200, command= self.restaurantnamee)
+        self.approvename = i.CTkButton(self.master, text="Save Name", width=200, fg_color="#606c38", hover_color="#283618",command= self.restaurantnamee)
         self.approvename.pack(pady=5)
 
         # --- Horizontal Line Separator ---
@@ -35,7 +34,7 @@ class Thefrontface:
         self.food_price_entry = i.CTkEntry(self.master, placeholder_text="Price (e.g. 15.99)", width=200)
         self.food_price_entry.pack(pady=5)
 
-        self.add_food_btn = i.CTkButton(self.master, text="Save Food to Menu", width=200, command= self.adding)
+        self.add_food_btn = i.CTkButton(self.master, text="Save Food to Menu", width=200,fg_color="#606c38", hover_color="#283618", command= self.adding)
         self.add_food_btn.pack(pady=10)
         
         # --- 4. The Scrollable Menu View ---
@@ -53,7 +52,7 @@ class thebackbone(Thefrontface):
         super().__init__(master)
         self.x = ""
         self.n=False
-
+        self.rn = ""
 
     def restaurantnamee(self):
         ownername=self.resturantname.get()
@@ -68,9 +67,19 @@ class thebackbone(Thefrontface):
         # just for safty we add it 
         if self.x not in data:
             data[self.x] = {"Resturant name": ""}
-
+            
         
         self.rn = data[self.x]["Resturant name"]
+        name_taken = False
+        for r in dataa.get("restaurants", []):
+            if r["name"] == ownername and r["name"] != self.rn:
+                name_taken = True
+                break
+                
+        
+        if name_taken:
+            print(f"Error: The name '{ownername}' is already taken!")
+            return
         if self.rn !="":
             
             
@@ -89,9 +98,7 @@ class thebackbone(Thefrontface):
                  j.dump(dataa,f,indent=4)
                 print("use and db done")
 
-                
-        if self.rn =="":
-            print("your restaurant is named")
+        if self.rn == "":
             data[self.x]["Resturant name"]=ownername
             with open(uses,"w")as f:
              j.dump(data,f,indent=4)
@@ -110,7 +117,7 @@ class thebackbone(Thefrontface):
         
 
         ownername=self.resturantname.get()
-
+        self.rn = ownername
         food_name=self.food_name_entry.get()
         food_price=self.food_price_entry.get()
         if food_name and food_price:
@@ -214,9 +221,9 @@ class thebackbone(Thefrontface):
            price = x["price"]
            row= i.CTkFrame(self.scrollmenu, fg_color="transparent")
            row.pack(fill="x", pady=2)
-           i.CTkButton(row, text=f"{name} Price {price}$", command=lambda showing=x: print(showing)).pack(side="left",fill="x", expand=True,padx=5,pady=3)
+           i.CTkButton(row, text=f"{name} Price {price}$",fg_color="#606c38", hover_color="#283618", command=lambda showing=x: print(showing)).pack(side="left",fill="x", expand=True,padx=5,pady=3)
            i.CTkButton(row, text="trash", fg_color="red",hover_color="darkred", command=lambda food=x: self.removing(food) ).pack(side="right", padx=5,pady=3)
-           i.CTkButton(row, text="change price", command=lambda p=x: self.changingprice(p) ).pack(side="right",padx=5,pady=3)
+           i.CTkButton(row, text="change price", fg_color="#606c38", hover_color="#283618",command=lambda p=x: self.changingprice(p) ).pack(side="right",padx=5,pady=3)
            
         
     

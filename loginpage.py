@@ -14,10 +14,10 @@ class st:
         self.next=ys
         self.login.pack(fill="both", expand= True)
         # label the welcome text 
-        self.text=i.CTkLabel(master,text="Welcome", font=("",56))
+        self.text=i.CTkLabel(master,text="Welcome",text_color="#283618", font=("",56))
         self.text.pack(pady=10)
         # entery name placeholder_text the transpance text
-        self.username= i.CTkEntry(master,placeholder_text="name pls",width=200)
+        self.username= i.CTkEntry(master,placeholder_text="name pls",width=200,)
         self.username.pack(pady=10)
         self.userpassword= i.CTkEntry(master,placeholder_text="password pls",width=200,show="*")
         self.userpassword.pack(pady=12)
@@ -29,10 +29,10 @@ class user(st):
         super().__init__(master,name_cs,name_ow,ys,s,ownerpage)
         self.singin=False
         # self.b the button  for loging in
-        self.b = i.CTkButton(master,text="login",width=200,command= self.loging)
+        self.b = i.CTkButton(master,text="login",width=200,command= self.loging,fg_color="#606c38", hover_color="#283618")
         self.b.pack(pady=14)
         # for singin 
-        self.b = i.CTkButton(master,text="signup",width=200,command= self.singinn)
+        self.b = i.CTkButton(master,text="signup",width=200,command= self.singinn,fg_color="#606c38", hover_color="#283618")
         self.b.pack(pady=17)
 
     def loging(self):

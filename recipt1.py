@@ -36,7 +36,7 @@ class main_rc(The_truck):
             #x is horizontal
         ctk.CTkFrame(self, height=2, fg_color="gray").pack(fill="x", padx=40, pady=10) # Horizontal line
         ctk.CTkLabel(self, text=f"Total Paid: ${self.order_total:.2f}", font=("Arial", 20, "bold")).pack(pady=5)
-        hm=ctk.CTkButton(self, text="Back to Home", command=self.go_home)
+        hm=ctk.CTkButton(self, text="Back to Home", fg_color="#606c38", hover_color="#283618",command=self.go_home)
         hm.pack(pady=20)
     def go_home(self):
         # Send the user back to the main restaurant list
